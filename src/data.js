@@ -15,7 +15,17 @@ import Neo_Src from "./Assets/Characters/Cyberpunk/neo.png";
 import Predator_Src from "./Assets/Characters/Cyberpunk/predator.png";
 import Ryuk_Src from "./Assets/Characters/Cyberpunk/ryuk.png";
 import Spiderman_Src from "./Assets/Characters/Cyberpunk/spiderman.png";
-
+//Universe113
+import Bender_Src from "./Assets/Characters/Universe113/bender.png";
+import BigBoss_Src from "./Assets/Characters/Universe113/bigboss.png";
+import Excalibur_Src from "./Assets/Characters/Universe113/excalibur.png";
+import Gandalf_Src from "./Assets/Characters/Universe113/gandalf.png";
+import Genos_Src from "./Assets/Characters/Universe113/genos.png";
+import Groot_Src from "./Assets/Characters/Universe113/groot.png";
+import Guts_Src from "./Assets/Characters/Universe113/guts.png";
+import Kratos_Src from "./Assets/Characters/Universe113/kratos.png";
+import Sonic_Src from "./Assets/Characters/Universe113/sonic.png";
+import Spawn_Src from "./Assets/Characters/Universe113/spawn.png";
 const game = {
   level: [
     {
@@ -122,41 +132,41 @@ const game = {
           difficulty: "easy",
           characters: [
             {
-              name: "",
-              title: "",
-              image: "",
+              name: "Excalibur",
+              title: "Soul Eater",
+              image: Excalibur_Src,
               xCoord: "",
               yCoord: "",
               isFound: false,
             },
             {
-              name: "",
-              title: "",
-              image: "",
+              name: "Guts",
+              title: "Berserk",
+              image: Guts_Src,
               xCoord: "",
               yCoord: "",
               isFound: false,
             },
             {
-              name: "",
-              title: "",
-              image: "",
+              name: "Kratos",
+              title: "God of War",
+              image: Kratos_Src,
               xCoord: "",
               yCoord: "",
               isFound: false,
             },
             {
-              name: "",
-              title: "",
-              image: "",
+              name: "Sonic",
+              title: "Sonic the Hedgehog",
+              image: Sonic_Src,
               xCoord: "",
               yCoord: "",
               isFound: false,
             },
             {
-              name: "",
-              title: "",
-              image: "",
+              name: "Spawn",
+              title: "Spawn",
+              image: Spawn_Src,
               xCoord: "",
               yCoord: "",
               isFound: false,
@@ -167,41 +177,42 @@ const game = {
           difficulty: "hard",
           characters: [
             {
-              name: "",
-              title: "",
-              image: "",
+              name: "Bender",
+              title: "Futurama",
+              image: Bender_Src,
               xCoord: "",
               yCoord: "",
               isFound: false,
             },
             {
-              name: "",
-              title: "",
-              image: "",
+              name: "Big Boss",
+              title: "Metal Gear Solid V",
+              image: BigBoss_Src,
               xCoord: "",
               yCoord: "",
               isFound: false,
             },
             {
-              name: "",
-              title: "",
-              image: "",
+              name: "Gandalf",
+              title: "The Lord of The Rings",
+              image: Gandalf_Src,
               xCoord: "",
               yCoord: "",
               isFound: false,
             },
             {
-              name: "",
-              title: "",
-              image: "",
+              name: "Genos",
+              title: "One Punch Man",
+              image: Genos_Src,
               xCoord: "",
               yCoord: "",
               isFound: false,
             },
+
             {
-              name: "",
-              title: "",
-              image: "",
+              name: "Groot",
+              title: "Guardians of The Galaxy",
+              image: Groot_Src,
               xCoord: "",
               yCoord: "",
               isFound: false,
