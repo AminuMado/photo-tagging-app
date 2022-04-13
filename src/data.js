@@ -1,49 +1,66 @@
 // This houses the whole game data
+//Levels
+import CyberPunkCity_Src from "./Assets/Levels/CyberpunkCity.jpg";
+import Universe113_Src from "./Assets/Levels/universe113.jpg";
+import UltimateSpaceBattle_Src from "./Assets/Levels/ultimatespacebattle.jpg";
+// Characters
+// CyberPunkCity
+import Cc_Src from "./Assets/Characters/Cyberpunk/cc.png";
+import Diana_Src from "./Assets/Characters/Cyberpunk/diana.png";
+import Dio_Src from "./Assets/Characters/Cyberpunk/dio.png";
+import Gwyndolin_Src from "./Assets/Characters/Cyberpunk/gwyndolin.png";
+import Hellboy_Src from "./Assets/Characters/Cyberpunk/hellboy.png";
+import Leeloo_Src from "./Assets/Characters/Cyberpunk/leeloo.png";
+import Neo_Src from "./Assets/Characters/Cyberpunk/neo.png";
+import Predator_Src from "./Assets/Characters/Cyberpunk/predator.png";
+import Ryuk_Src from "./Assets/Characters/Cyberpunk/ryuk.png";
+import Spiderman_Src from "./Assets/Characters/Cyberpunk/spiderman.png";
+
 const game = {
   level: [
     {
       name: "CyberPunk City",
-      image: "",
+      image: CyberPunkCity_Src,
       mode: [
         {
           difficulty: "easy",
           characters: [
             {
-              name: "",
-              title: "",
-              image: "",
+              name: "Diana",
+              title: "Seven Deadly Sins",
+              image: Diana_Src,
               xCoord: "",
               yCoord: "",
               isFound: false,
             },
             {
-              name: "",
-              title: "",
-              image: "",
+              name: "Gywndolin",
+              title: "Dark Souls",
+              image: Gwyndolin_Src,
               xCoord: "",
               yCoord: "",
               isFound: false,
             },
             {
-              name: "",
-              title: "",
-              image: "",
+              name: "Leelo",
+              title: "The Fifth Element",
+              image: Leeloo_Src,
               xCoord: "",
               yCoord: "",
               isFound: false,
             },
             {
-              name: "",
-              title: "",
-              image: "",
+              name: "Neo",
+              title: "The Matrix",
+              image: Neo_Src,
               xCoord: "",
               yCoord: "",
               isFound: false,
             },
             {
-              name: "",
-              title: "",
-              image: "",
+              name: "Ryuk",
+              title: "Death Note",
+              image: Ryuk_Src,
               xCoord: "",
               yCoord: "",
               isFound: false,
@@ -54,41 +71,41 @@ const game = {
           difficulty: "hard",
           characters: [
             {
-              name: "",
-              title: "",
-              image: "",
+              name: "C.C",
+              title: "Code Geass",
+              image: Cc_Src,
               xCoord: "",
               yCoord: "",
               isFound: false,
             },
             {
-              name: "",
-              title: "",
-              image: "",
+              name: "Dio Brando",
+              title: "JoJo's Bizarre Adventure Stardust Crusaders",
+              image: Dio_Src,
               xCoord: "",
               yCoord: "",
               isFound: false,
             },
             {
-              name: "",
-              title: "",
-              image: "",
+              name: "Hellboy",
+              title: "Hellboy",
+              image: Hellboy_Src,
               xCoord: "",
               yCoord: "",
               isFound: false,
             },
             {
-              name: "",
-              title: "",
-              image: "",
+              name: "Predator",
+              title: "The Predator",
+              image: Predator_Src,
               xCoord: "",
               yCoord: "",
               isFound: false,
             },
             {
-              name: "",
-              title: "",
-              image: "",
+              name: "Spiderman",
+              title: "The Amazing Spiderman",
+              image: Spiderman_Src,
               xCoord: "",
               yCoord: "",
               isFound: false,
@@ -99,7 +116,7 @@ const game = {
     },
     {
       name: "Universe 113",
-      image: "",
+      image: Universe113_Src,
       mode: [
         {
           difficulty: "easy",
@@ -195,7 +212,7 @@ const game = {
     },
     {
       name: "Ultimate Space Battle",
-      image: "",
+      image: UltimateSpaceBattle_Src,
       mode: [
         {
           difficulty: "easy",
