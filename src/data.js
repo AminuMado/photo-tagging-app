@@ -26,6 +26,17 @@ import Guts_Src from "./Assets/Characters/Universe113/guts.png";
 import Kratos_Src from "./Assets/Characters/Universe113/kratos.png";
 import Sonic_Src from "./Assets/Characters/Universe113/sonic.png";
 import Spawn_Src from "./Assets/Characters/Universe113/spawn.png";
+//UltimateSpaceBattle
+import Agent47_Src from "./Assets/Characters/UltimateSpaceBattle/agent47.png";
+import Astroboy_Src from "./Assets/Characters/UltimateSpaceBattle/astroboy.png";
+import Cartman_Src from "./Assets/Characters/UltimateSpaceBattle/cartman.png";
+import Cromulon_Src from "./Assets/Characters/UltimateSpaceBattle/cromulon.png";
+import Dante_Src from "./Assets/Characters/UltimateSpaceBattle/dante.png";
+import DarthVader_Src from "./Assets/Characters/UltimateSpaceBattle/darthvader.png";
+import Eustass_Src from "./Assets/Characters/UltimateSpaceBattle/eustass.png";
+import GhostFace_Src from "./Assets/Characters/UltimateSpaceBattle/ghostface.png";
+import MBison_Src from "./Assets/Characters/UltimateSpaceBattle/mbison.png";
+import ScoobyDoo_Src from "./Assets/Characters/UltimateSpaceBattle/scoobydoo.png";
 const game = {
   level: [
     {
@@ -229,41 +240,41 @@ const game = {
           difficulty: "easy",
           characters: [
             {
-              name: "",
-              title: "",
-              image: "",
+              name: "Astro Boy",
+              title: "Astro Boy",
+              image: Astroboy_Src,
               xCoord: "",
               yCoord: "",
               isFound: false,
             },
             {
-              name: "",
-              title: "",
-              image: "",
+              name: "Cromulon",
+              title: "Rick & Morty",
+              image: Cromulon_Src,
               xCoord: "",
               yCoord: "",
               isFound: false,
             },
             {
-              name: "",
-              title: "",
-              image: "",
+              name: "Dante",
+              title: "Devil May Cry",
+              image: Dante_Src,
               xCoord: "",
               yCoord: "",
               isFound: false,
             },
             {
-              name: "",
-              title: "",
-              image: "",
+              name: "Darth Vader",
+              title: "Star Wars",
+              image: DarthVader_Src,
               xCoord: "",
               yCoord: "",
               isFound: false,
             },
             {
-              name: "",
-              title: "",
-              image: "",
+              name: "M.Bison",
+              title: "Street Fighter",
+              image: MBison_Src,
               xCoord: "",
               yCoord: "",
               isFound: false,
@@ -274,41 +285,41 @@ const game = {
           difficulty: "hard",
           characters: [
             {
-              name: "",
-              title: "",
-              image: "",
+              name: "Agent 47",
+              title: "Hitman",
+              image: Agent47_Src,
               xCoord: "",
               yCoord: "",
               isFound: false,
             },
             {
-              name: "",
-              title: "",
-              image: "",
+              name: "Cartman",
+              title: "South Park",
+              image: Cartman_Src,
               xCoord: "",
               yCoord: "",
               isFound: false,
             },
             {
-              name: "",
-              title: "",
-              image: "",
+              name: "Eustass",
+              title: "Courage the Cowardly Dog",
+              image: Eustass_Src,
               xCoord: "",
               yCoord: "",
               isFound: false,
             },
             {
-              name: "",
-              title: "",
-              image: "",
+              name: "Ghost Face",
+              title: "Scream",
+              image: GhostFace_Src,
               xCoord: "",
               yCoord: "",
               isFound: false,
             },
             {
-              name: "",
-              title: "",
-              image: "",
+              name: "Scooby Doo",
+              title: "Scooby-Doo Where Are You!",
+              image: ScoobyDoo_Src,
               xCoord: "",
               yCoord: "",
               isFound: false,
