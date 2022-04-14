@@ -36,7 +36,9 @@ function Nav({ active }) {
   });
 
   return (
-    <nav className="flex p-6 gap-6 justify-center items-center">{navItems}</nav>
+    <nav className="flex p-6 gap-10 justify-center items-center">
+      {navItems}
+    </nav>
   );
 }
 export default Nav;
