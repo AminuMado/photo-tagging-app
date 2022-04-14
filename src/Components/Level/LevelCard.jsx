@@ -4,7 +4,7 @@ const LevelCard = (props) => {
   return (
     <div
       className=" font-bold flex flex-col w-[600px] h-96 min-w-[250px] items-center justify-center m-3 overflow-clip border-2 rounded-md 
-      border-gray-400 relative hover:scale-105 duration-300"
+      border-gray-400 relative hover:scale-105 duration-300 cursor-pointer"
       onClick={props.clicked}
     >
       <img src={props.image} alt={props.name} />
