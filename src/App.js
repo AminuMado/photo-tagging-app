@@ -5,10 +5,7 @@ import Leaderboard from "./Components/LeaderBoard/LeaderBoard";
 // import { BrowserRouter } from "react-router-dom";
 function App() {
   return (
-    <div
-      className="
-    bg-slate-800"
-    >
+    <div className="bg-slate-800 ">
       <BrowserRouter basename="/">
         <Routes>
           <Route path="/" element={<Home />} />
