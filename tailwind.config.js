@@ -4,6 +4,8 @@ module.exports = {
     extend: {
       fontFamily: {
         Crosshatcher: ["Crosshatcher", "serif"],
+        Inconsolata: ["Inconsolata", "monospace"],
+        EBGaramond: ['"EB Garamond"', "serif"],
       },
     },
   },
