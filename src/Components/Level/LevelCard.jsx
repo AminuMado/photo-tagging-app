@@ -3,7 +3,7 @@ import React from "react";
 const LevelCard = (props) => {
   return (
     <div
-      className="flex flex-col w-[600px] h-96 min-w-[250px] items-center justify-center m-3 overflow-clip border-2 rounded-md 
+      className=" font-bold flex flex-col w-[600px] h-96 min-w-[250px] items-center justify-center m-3 overflow-clip border-2 rounded-md 
       border-gray-400 relative hover:scale-105 duration-300"
       onClick={props.clicked}
     >
