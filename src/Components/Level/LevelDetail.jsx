@@ -1,12 +1,11 @@
-import React from "react";
 import CharacterCard from "../Character/CharacterCard";
 
 const LevelDetail = ({ level, active, easyMode, hardMode, characters }) => {
   return (
     <div
       className={`${
-        active ? "translate-x-0" : "-translate-x-full"
-      } fixed top-36 h-screen w-screen bg-black opacity-80 pointer-events-all z-30 duration-700`}
+        active ? "-translate-y-0" : "translate-y-full"
+      } fixed top-36 h-screen w-screen pointer-events-all z-30 duration-1000`}
     >
       <div className="flex flex-col items-center justify-center">
         <div className="flex  text-white m-4">
