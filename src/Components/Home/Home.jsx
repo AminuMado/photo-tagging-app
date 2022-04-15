@@ -5,19 +5,37 @@ import data from "../../data";
 import Overlay from "../Overlay/Overlay";
 import LevelDetail from "../Level/LevelDetail";
 
-const Home = () => {
+const Home = ({ setGame }) => {
   const [active, setActive] = useState(false);
+  const [currentLevel, setCurrentLevel] = useState({});
+  const [difficulty, setDifficulty] = useState(false);
+  const [characters, setCharacters] = useState(false);
+  // Functions
   const toggleOverlay = () => {
     setActive((prevActive) => !prevActive);
   };
-  const levels = data.level.map((level) => (
-    <LevelCard
-      name={level.name}
-      image={level.image}
-      key={level.name}
-      clicked={toggleOverlay}
-    />
-  ));
+  const clearAll = () => {
+    setCurrentLevel({});
+    setDifficulty(false);
+    setCharacters(false);
+  };
+  const handleClick = (level) => {
+    setCurrentLevel(level);
+    toggleOverlay();
+  };
+  const shuffle = (array) => {
+    return array.sort(() => Math.random() - 0.5).slice(2);
+  };
+
+  const easyMode = () => {
+    setDifficulty(currentLevel.mode[0].difficulty);
+    setCharacters(shuffle(currentLevel.mode[0].characters));
+  };
+  const hardMode = () => {
+    setDifficulty(currentLevel.mode[1].difficulty);
+    setCharacters(shuffle(currentLevel.mode[1].characters));
+  };
+
   return (
     <>
       <Overlay active={active} />
@@ -25,8 +43,11 @@ const Home = () => {
       <main>
         {active && (
           <button
-            className="text-neutral-400 hover:scale-110 duration-300 absolute z-30 right-5 top-5 font-bold text-3xl"
-            onClick={toggleOverlay}
+            className="text-neutral-400 hover:scale-110 duration-300 absolute z-40 right-5 top-5 font-bold text-3xl"
+            onClick={() => {
+              clearAll();
+              toggleOverlay();
+            }}
           >
             Back
           </button>
@@ -34,22 +55,31 @@ const Home = () => {
         <header className="font-bold text-5xl text-center m-6 p-3 ">
           <h1>Choose a Level</h1>
         </header>
-        <section className="flex justify-evenly flex-wrap">{levels}</section>
-        <LevelDetail active={active} name={""} image={""} />
+        <section className="flex justify-evenly flex-wrap">
+          {data.level.map((level) => (
+            <LevelCard
+              name={level.name}
+              image={level.image}
+              key={level.name}
+              level={level}
+              clicked={() => {
+                handleClick(level);
+              }}
+            />
+          ))}
+        </section>
+        <LevelDetail
+          active={active}
+          level={currentLevel}
+          difficulty={difficulty}
+          characters={characters}
+          easyMode={easyMode}
+          hardMode={hardMode}
+          startGame={setGame}
+        />
       </main>
     </>
   );
-
-  /* My home component shoul have a these components
-NavBar Component
-Level Selecton Card component
-An overlay Component
-Level Options Section component
-Characters Card Component
-buttons Component
-
-
-*/
 };
 
 export default Home;
