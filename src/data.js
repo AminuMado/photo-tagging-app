@@ -101,7 +101,7 @@ const game = {
             },
             {
               name: "Dio Brando",
-              title: "JoJo's Bizarre Adventure Stardust Crusaders",
+              title: "JoJo's Bizarre",
               image: Dio_Src,
               xCoord: "",
               yCoord: "",
@@ -125,7 +125,7 @@ const game = {
             },
             {
               name: "Spiderman",
-              title: "The Amazing Spiderman",
+              title: "The Spiderman",
               image: Spiderman_Src,
               xCoord: "",
               yCoord: "",
