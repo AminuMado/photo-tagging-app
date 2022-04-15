@@ -1,6 +1,23 @@
 import CharacterCard from "../Character/CharacterCard";
 import { Link } from "react-router-dom";
-const LevelDetail = ({ level, active, easyMode, hardMode, characters }) => {
+const LevelDetail = ({
+  level,
+  active,
+  easyMode,
+  hardMode,
+  characters,
+  difficulty,
+  startGame,
+}) => {
+  const handleClick = () => {
+    const currentGame = {
+      levelName: level.name,
+      levelImage: level.image,
+      difficulty: difficulty,
+      characters: characters,
+    };
+    startGame(currentGame);
+  };
   return (
     <div
       className={`${
@@ -48,15 +65,12 @@ const LevelDetail = ({ level, active, easyMode, hardMode, characters }) => {
         </div>
         <Link to="/Game">
           <button
-            disabled={characters}
             className={
               characters
                 ? "bg-yellow-400 text-5xl w-60 p-5 m-3 rounded-lg hover:font-bold hover:scale-105 active:scale-100 opacity-100 transition-opacity duration-500"
                 : "opacity-0"
             }
-            onClick={() => {
-              console.log("start butn cliked");
-            }}
+            onClick={handleClick}
           >
             Start
           </button>
