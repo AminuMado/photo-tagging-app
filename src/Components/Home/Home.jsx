@@ -52,7 +52,7 @@ const Home = ({ setGame }) => {
             Back
           </button>
         )}
-        <header className="font-bold text-5xl text-center m-6 p-3 ">
+        <header className="font-bold text-5xl text-center m-6 p-3 text-yellow-300">
           <h1>Choose a Level</h1>
         </header>
         <section className="flex justify-evenly flex-wrap">
