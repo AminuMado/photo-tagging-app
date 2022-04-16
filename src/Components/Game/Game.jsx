@@ -1,18 +1,54 @@
 import { useState } from "react";
-
-const Game = (props) => {
-  console.log(props.currentGame);
+import { Link } from "react-router-dom";
+import Timer from "../Timer/Timer";
+import Home_Src from "../../Assets/Misc/home.png";
+import CharacterCard from "../Character/CharacterCard";
+const Game = ({ currentGame }) => {
   const [active, setActive] = useState(false);
+  const count = currentGame.characters.filter(
+    (character) => !character.isFound
+  ).length;
+  console.log(count);
+  const characters = currentGame.characters.map((character) => {
+    return (
+      <CharacterCard
+        name={character.name}
+        image={character.image}
+        title={character.title}
+        key={character.name}
+      />
+    );
+  });
   return (
     <div className="flex h-screen w-screen  text-white">
       <div
         className={
           active
-            ? "w-96 h-full bg-slate-800 absolute transition-all duration-300 left-7 scale-95 rounded-md flex items-center p-4 "
-            : "w-32 h-full -left-1/4 bg-slate-800 absolute transition-all duration-300"
+            ? "w-96 h-full  bg-neutral-900 absolute transition-all duration-500 left-7 scale-95 rounded-md flex flex-col justify-between p-2"
+            : "w-32 h-full -left-1/4 absolute transition-all duration-500"
         }
       >
-        <div>sidebar</div>
+        <div className="flex justify-between items-center w-full">
+          <button
+            className=" bg-green-600 w-24 p-2 m-3 rounded-lg hover:font-bold hover:scale-105 active:scale-100"
+            onClick={() => setActive(!active)}
+          >
+            Resume
+          </button>
+          <Link to="/">
+            <img
+              src={Home_Src}
+              alt="Home"
+              className="w-10 invert-[.25] hover:invert cursor-pointer hover:scale-105 duration-200 m-2"
+            />
+          </Link>
+        </div>
+        <div className="flex flex-col gap-2 items-center justify-center">
+          {characters}
+        </div>
+        <div className="text-3xl font-Inconsolata text-center ">
+          <Timer isGameOver={false} />
+        </div>
       </div>
       <main
         className={
@@ -22,10 +58,12 @@ const Game = (props) => {
         }
       >
         <div>
-          <p className="w-20 h-20 rounded-full bg-blue-400 flex items-center justify-center text-4xl">
-            4
+          <p
+            onClick={() => setActive(!active)}
+            className="w-14 h-14 rounded-full bg-red-800 flex items-center justify-center text-4xl font-bold font-Inconsolata absolute left-5 top-3 hover:bg-red-600 cursor-pointer hover:scale-105"
+          >
+            {count}
           </p>
-          <button onClick={() => setActive((prev) => !prev)}>Click Me</button>
         </div>
       </main>
     </div>
