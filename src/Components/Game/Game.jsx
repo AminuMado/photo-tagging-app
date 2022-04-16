@@ -24,8 +24,8 @@ const Game = ({ currentGame }) => {
       <div
         className={
           active
-            ? "w-96 h-full  bg-neutral-900 absolute transition-all duration-500 left-7 scale-95 rounded-md flex flex-col justify-between p-2"
-            : "w-32 h-full -left-1/4 absolute transition-all duration-500"
+            ? "w-96 max-w-[384px] h-full  bg-neutral-900 fixed transition-all duration-500 left-7 scale-95 rounded-md flex flex-col justify-between p-2"
+            : "w-32 max-w-[384px] h-full -left-full absolute transition-all duration-500"
         }
       >
         <div className="flex justify-between items-center w-full">
@@ -57,10 +57,15 @@ const Game = ({ currentGame }) => {
             : "h-full w-full grid place-items-center transition-all duration-300"
         }
       >
+        <img
+          src={currentGame.levelImage}
+          alt={currentGame.levelName}
+          className="max-w-screen-lg min-w-full object-cover"
+        />
         <div>
           <p
             onClick={() => setActive(!active)}
-            className="w-14 h-14 rounded-full bg-red-800 flex items-center justify-center text-4xl font-bold font-Inconsolata absolute left-5 top-3 hover:bg-red-600 cursor-pointer hover:scale-105"
+            className="w-14 h-14 rounded-full bg-red-800 flex items-center justify-center text-4xl font-bold font-Inconsolata fixed left-5 top-3 hover:bg-red-600 cursor-pointer hover:scale-105"
           >
             {count}
           </p>
