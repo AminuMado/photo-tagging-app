@@ -55,6 +55,7 @@ const LevelDetail = ({
                         image={character.image}
                         title={character.title}
                         key={character.name}
+                        size="lg"
                       />
                     );
                   })}
