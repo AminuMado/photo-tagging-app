@@ -68,7 +68,7 @@ const LevelDetail = ({
           <button
             className={
               characters
-                ? "bg-yellow-400 text-5xl w-60 p-5 m-3 rounded-lg hover:font-bold hover:scale-105 active:scale-100 opacity-100 transition-opacity duration-500"
+                ? "bg-yellow-400 text-5xl w-60 p-3  rounded-lg hover:font-bold hover:scale-105 active:scale-100 opacity-100 transition-opacity duration-500"
                 : "opacity-0"
             }
             onClick={handleClick}
