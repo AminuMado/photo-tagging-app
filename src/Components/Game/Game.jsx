@@ -17,7 +17,16 @@ const Game = ({ currentGame }) => {
     .map((character) => (
       <CharacterDropdown key={character.name} character={character} />
     ));
-
+  const getCoordinates = (e) => {
+    const xCoord = Math.round(
+      (e.nativeEvent.offsetX / e.nativeEvent.target.offsetWidth) * 100
+    );
+    const yCoord = Math.round(
+      (e.nativeEvent.offsetY / e.nativeEvent.target.offsetHeight) * 100
+    );
+    const coords = { xCoord, yCoord };
+    return coords;
+  };
   const getLocationImageClick = (e) => {
     const xCoordinate = Math.round(e.nativeEvent.offsetX);
     const yCoordinate = Math.round(e.nativeEvent.offsetY);
@@ -33,7 +42,7 @@ const Game = ({ currentGame }) => {
     };
 
     setClickLocation(updatedCoords);
-    setShowDropDown(true);
+    setShowDropDown(!showDropDown);
   };
 
   const imageClick = (e) => {
@@ -51,8 +60,7 @@ const Game = ({ currentGame }) => {
       />
     );
   });
-  console.log(coordinates);
-  console.log(clickLocation);
+
   return (
     <div className="flex h-screen w-screen  text-white">
       <div
@@ -88,13 +96,15 @@ const Game = ({ currentGame }) => {
         className={
           active
             ? "scale-x-95 scale-y-95 ml-96 opacity-20 pointer-events-none rounded-md h-full w-full grid place-items-center transition-all duration-300 bg-slate-400"
-            : "h-fit w-full grid place-items-center transition-all duration-300 relative overflow-clip"
+            : "h-fit w-full grid place-items-center transition-all duration-300 relative overflow-clip "
         }
         onClick={(e) => {
           console.log(e.nativeEvent.offsetY);
           console.log(e.nativeEvent.target.offsetHeight);
           console.log(e.nativeEvent.target.clientHeight);
           imageClick(e);
+          const scaledCoords = getCoordinates(e);
+          console.log(scaledCoords);
         }}
       >
         <img
