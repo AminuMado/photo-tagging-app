@@ -43,7 +43,7 @@ const Home = ({ setGame }) => {
       <main>
         {active && (
           <button
-            className="text-neutral-400 hover:scale-110 duration-300 absolute z-40 right-5 top-5 font-bold text-3xl"
+            className="text-neutral-400 hover:scale-110 duration-300 fixed hover:text-green-600 z-40 right-5 top-5 font-bold text-3xl"
             onClick={() => {
               clearAll();
               toggleOverlay();
