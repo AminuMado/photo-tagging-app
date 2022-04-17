@@ -106,6 +106,7 @@ const Game = ({ currentGame }) => {
           onClick={(e) => {
             imageClick(e);
             const scaledCoords = getCoordinates(e);
+            console.log(scaledCoords);
           }}
         />
         <button
