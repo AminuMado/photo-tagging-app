@@ -62,8 +62,8 @@ const Game = ({ currentGame }) => {
   });
 
   return (
-    <div className="flex h-screen w-screen  text-white">
-      <div
+    <div className="flex h-screen w-screen text-white">
+      <aside
         className={
           active
             ? "w-96 max-w-[384px] h-full  bg-neutral-900 fixed transition-all duration-500 left-7 scale-95 rounded-md flex flex-col justify-between p-2"
@@ -91,7 +91,7 @@ const Game = ({ currentGame }) => {
         <div className="text-3xl font-Inconsolata text-center ">
           <Timer isGameOver={false} />
         </div>
-      </div>
+      </aside>
       <main
         className={
           active
@@ -108,14 +108,12 @@ const Game = ({ currentGame }) => {
             const scaledCoords = getCoordinates(e);
           }}
         />
-        <div>
-          <p
-            onClick={() => setActive(!active)}
-            className="w-14 h-14 rounded-full bg-red-800 flex items-center justify-center text-4xl font-bold font-Inconsolata fixed left-5 top-3 hover:bg-red-600 cursor-pointer hover:scale-105 z-10"
-          >
-            {count}
-          </p>
-        </div>
+        <button
+          className="w-14 h-14 rounded-full bg-red-800 flex items-center justify-center text-4xl font-bold font-Inconsolata fixed left-5 top-3 hover:bg-red-600 cursor-pointer hover:scale-105 z-10"
+          onClick={() => setActive(!active)}
+        >
+          {count}
+        </button>
         {showDropDown && (
           <>
             <Crosshair coordinates={clickLocation} />
