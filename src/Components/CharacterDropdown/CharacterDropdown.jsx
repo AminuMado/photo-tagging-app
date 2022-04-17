@@ -1,7 +1,7 @@
 const CharacterDropdown = ({ character }) => {
   return (
     <div>
-      <div className="flex w-40 bg-neutral-900 rounded-sm hover:bg-neutral-700 cursor-pointer active:scale-95 items-center justify-around font-Inconsolata text-white">
+      <div className="flex w-40 rounded-md  hover:bg-neutral-700 cursor-pointer active:scale-95 items-center justify-around font-Inconsolata text-white">
         <img
           className="w-8 h-11 object-contain"
           src={character.image}
