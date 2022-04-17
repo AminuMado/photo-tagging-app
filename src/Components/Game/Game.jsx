@@ -3,12 +3,44 @@ import { Link } from "react-router-dom";
 import Timer from "../Timer/Timer";
 import Home_Src from "../../Assets/Misc/home.png";
 import CharacterCard from "../Character/CharacterCard";
+import CharacterDropdown from "../CharacterDropdown/CharacterDropdown";
 const Game = ({ currentGame }) => {
   const [active, setActive] = useState(false);
+  const [showDropDown, setShowDropDown] = useState(false);
+  const [coordinates, setCoordinates] = useState(null);
+  const [clickLocation, setClickLocation] = useState({ left: "0", top: "0" });
   const count = currentGame.characters.filter(
     (character) => !character.isFound
   ).length;
-  console.log(count);
+  const dropDown = currentGame.characters
+    .filter((character) => !character.isFound)
+    .map((character) => (
+      <CharacterDropdown key={character.name} character={character} />
+    ));
+
+  const getLocationImageClick = (e) => {
+    const xCoordinate = Math.round(e.nativeEvent.offsetX);
+    const yCoordinate = Math.round(e.nativeEvent.offsetY);
+    const coordinates = { xCoordinate, yCoordinate };
+    return coordinates;
+  };
+
+  const updateClickLocation = (coordinates) => {
+    const { xCoordinate, yCoordinate } = coordinates;
+    const updatedCoords = {
+      left: xCoordinate + "px",
+      top: yCoordinate + "px",
+    };
+
+    setClickLocation(updatedCoords);
+    setShowDropDown(true);
+  };
+
+  const imageClick = (e) => {
+    const currentCoordinates = getLocationImageClick(e);
+    setCoordinates(currentCoordinates);
+    updateClickLocation(currentCoordinates);
+  };
   const characters = currentGame.characters.map((character) => {
     return (
       <CharacterCard
@@ -19,6 +51,8 @@ const Game = ({ currentGame }) => {
       />
     );
   });
+  console.log(coordinates);
+  console.log(clickLocation);
   return (
     <div className="flex h-screen w-screen  text-white">
       <div
@@ -54,8 +88,14 @@ const Game = ({ currentGame }) => {
         className={
           active
             ? "scale-x-95 scale-y-95 ml-96 opacity-20 pointer-events-none rounded-md h-full w-full grid place-items-center transition-all duration-300 bg-slate-400"
-            : "h-full w-full grid place-items-center transition-all duration-300"
+            : "h-fit w-full grid place-items-center transition-all duration-300 relative overflow-clip"
         }
+        onClick={(e) => {
+          console.log(e.nativeEvent.offsetY);
+          console.log(e.nativeEvent.target.offsetHeight);
+          console.log(e.nativeEvent.target.clientHeight);
+          imageClick(e);
+        }}
       >
         <img
           src={currentGame.levelImage}
@@ -70,6 +110,11 @@ const Game = ({ currentGame }) => {
             {count}
           </p>
         </div>
+        {showDropDown && (
+          <div className="absolute" style={clickLocation}>
+            {dropDown}
+          </div>
+        )}
       </main>
     </div>
   );
