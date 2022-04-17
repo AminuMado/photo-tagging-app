@@ -4,6 +4,7 @@ import Timer from "../Timer/Timer";
 import Home_Src from "../../Assets/Misc/home.png";
 import CharacterCard from "../Character/CharacterCard";
 import CharacterDropdown from "../CharacterDropdown/CharacterDropdown";
+import Crosshair from "../Crosshair/Crosshair";
 const Game = ({ currentGame }) => {
   const [active, setActive] = useState(false);
   const [showDropDown, setShowDropDown] = useState(false);
@@ -33,7 +34,6 @@ const Game = ({ currentGame }) => {
     const coordinates = { xCoordinate, yCoordinate };
     return coordinates;
   };
-
   const updateClickLocation = (coordinates) => {
     const { xCoordinate, yCoordinate } = coordinates;
     const updatedCoords = {
@@ -98,32 +98,34 @@ const Game = ({ currentGame }) => {
             ? "scale-x-95 scale-y-95 ml-96 opacity-20 pointer-events-none rounded-md h-full w-full grid place-items-center transition-all duration-300 bg-slate-400"
             : "h-fit w-full grid place-items-center transition-all duration-300 relative overflow-clip "
         }
-        onClick={(e) => {
-          console.log(e.nativeEvent.offsetY);
-          console.log(e.nativeEvent.target.offsetHeight);
-          console.log(e.nativeEvent.target.clientHeight);
-          imageClick(e);
-          const scaledCoords = getCoordinates(e);
-          console.log(scaledCoords);
-        }}
       >
         <img
           src={currentGame.levelImage}
           alt={currentGame.levelName}
           className="max-w-screen-lg min-w-full object-cover"
+          onClick={(e) => {
+            imageClick(e);
+            const scaledCoords = getCoordinates(e);
+          }}
         />
         <div>
           <p
             onClick={() => setActive(!active)}
-            className="w-14 h-14 rounded-full bg-red-800 flex items-center justify-center text-4xl font-bold font-Inconsolata fixed left-5 top-3 hover:bg-red-600 cursor-pointer hover:scale-105"
+            className="w-14 h-14 rounded-full bg-red-800 flex items-center justify-center text-4xl font-bold font-Inconsolata fixed left-5 top-3 hover:bg-red-600 cursor-pointer hover:scale-105 z-10"
           >
             {count}
           </p>
         </div>
         {showDropDown && (
-          <div className="absolute" style={clickLocation}>
-            {dropDown}
-          </div>
+          <>
+            <Crosshair coordinates={clickLocation} />
+            <div
+              className="absolute bg-neutral-900 rounded-md"
+              style={clickLocation}
+            >
+              {dropDown}
+            </div>
+          </>
         )}
       </main>
     </div>
