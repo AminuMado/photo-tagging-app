@@ -1,4 +1,4 @@
-const CharacterCard = ({ name, title, image, size }) => {
+const CharacterCard = ({ name, title, image, size, isFound }) => {
   return (
     <div
       className={
@@ -14,7 +14,13 @@ const CharacterCard = ({ name, title, image, size }) => {
             : "w-2/3 max-w-[160px] min-w-[160px] flex justify-center items-center"
         }
       >
-        <img className="object-contain h-52" src={image} alt={name} />
+        <img
+          className={
+            isFound ? "opacity-30 object-contain h-52" : "object-contain h-52"
+          }
+          src={image}
+          alt={name}
+        />
       </div>
       <div
         className={
