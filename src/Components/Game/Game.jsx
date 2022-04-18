@@ -6,27 +6,35 @@ import CharacterCard from "../Character/CharacterCard";
 import CharacterDropdown from "../CharacterDropdown/CharacterDropdown";
 import Crosshair from "../Crosshair/Crosshair";
 const Game = ({ currentGame }) => {
+  const [characters, setCharacters] = useState(currentGame.characters);
   const [active, setActive] = useState(false);
   const [showDropDown, setShowDropDown] = useState(false);
   const [coordinates, setCoordinates] = useState(null);
   const [clickLocation, setClickLocation] = useState({ left: "0", top: "0" });
-  const count = currentGame.characters.filter(
-    (character) => !character.isFound
-  ).length;
-  const dropDown = currentGame.characters
+  const [showMessage, setShowMessage] = useState(false);
+
+  const count = characters.filter((character) => !character.isFound).length;
+  const dropDown = characters
     .filter((character) => !character.isFound)
     .map((character) => (
-      <CharacterDropdown key={character.name} character={character} />
+      <CharacterDropdown
+        key={character.name}
+        character={character}
+        setCharacters={setCharacters}
+        coordinates={coordinates}
+        setShowDropdown={setShowDropDown}
+        setShowMessage={setShowMessage}
+      />
     ));
   const getCoordinates = (e) => {
-    const xCoord = Math.round(
+    const xCoordinate = Math.round(
       (e.nativeEvent.offsetX / e.nativeEvent.target.offsetWidth) * 100
     );
-    const yCoord = Math.round(
+    const yCoordinate = Math.round(
       (e.nativeEvent.offsetY / e.nativeEvent.target.offsetHeight) * 100
     );
-    const coords = { xCoord, yCoord };
-    return coords;
+    const coordinates = { x: xCoordinate, y: yCoordinate };
+    return coordinates;
   };
   const getLocationImageClick = (e) => {
     const xCoordinate = Math.round(e.nativeEvent.offsetX);
@@ -49,18 +57,19 @@ const Game = ({ currentGame }) => {
     const currentCoordinates = getLocationImageClick(e);
     setCoordinates(currentCoordinates);
     updateClickLocation(currentCoordinates);
+    setCoordinates(getCoordinates(e));
   };
-  const characters = currentGame.characters.map((character) => {
+  const charactersList = characters.map((character) => {
     return (
       <CharacterCard
         name={character.name}
         image={character.image}
         title={character.title}
         key={character.name}
+        isFound={character.isFound}
       />
     );
   });
-
   return (
     <div className="flex h-screen w-screen text-white">
       <aside
@@ -86,7 +95,7 @@ const Game = ({ currentGame }) => {
           </Link>
         </div>
         <div className="flex flex-col gap-2 items-center justify-center">
-          {characters}
+          {charactersList}
         </div>
         <div className="text-3xl font-Inconsolata text-center ">
           <Timer isGameOver={false} />
@@ -105,8 +114,6 @@ const Game = ({ currentGame }) => {
           className="max-w-screen-lg min-w-full object-cover"
           onClick={(e) => {
             imageClick(e);
-            const scaledCoords = getCoordinates(e);
-            console.log(scaledCoords);
           }}
         />
         <button
@@ -125,6 +132,11 @@ const Game = ({ currentGame }) => {
               {dropDown}
             </div>
           </>
+        )}
+        {showMessage && (
+          <p className=" bg-red-600 rounded-lg p-4 text-xl fixed top-3 font-bold">
+            Keep Looking
+          </p>
         )}
       </main>
     </div>
