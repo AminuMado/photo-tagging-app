@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Components/Home/Home";
 import Game from "./Components/Game/Game";
 import Leaderboard from "./Components/LeaderBoard/LeaderBoard";
-// import { BrowserRouter } from "react-router-dom";
 function App() {
   const [currentGame, setCurrentGame] = useState("");
   return (
