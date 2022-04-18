@@ -4,13 +4,19 @@ const CharacterDropdown = ({
   setCharacters,
   coordinates,
   setShowDropdown,
+  setShowMessage,
 }) => {
   const handleClick = (e) => {
     const isCharacterAtCoords =
       isCoordinateWithinOneDegree(character.xCoordinate, coordinates.x) &&
       isCoordinateWithinOneDegree(coordinates.y, character.yCoordinate);
-    setShowDropdown((prev) => !prev);
-    if (!isCharacterAtCoords) return;
+    setTimeout(() => setShowDropdown((prev) => !prev), 1000);
+
+    if (!isCharacterAtCoords) {
+      setShowMessage(true);
+      setTimeout(() => setShowMessage(false), 1000);
+      return;
+    }
     setCharacters((prevChars) => {
       return prevChars.map((char) =>
         character.name === char.name ? { ...char, isFound: true } : char
