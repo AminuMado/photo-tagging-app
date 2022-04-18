@@ -1,9 +1,15 @@
 import isCoordinateWithinOneDegree from "../../Util/isCoordinateWithinOneDegree";
-const CharacterDropdown = ({ character, setCharacters, coordinates }) => {
+const CharacterDropdown = ({
+  character,
+  setCharacters,
+  coordinates,
+  setShowDropdown,
+}) => {
   const handleClick = (e) => {
     const isCharacterAtCoords =
       isCoordinateWithinOneDegree(character.xCoordinate, coordinates.x) &&
       isCoordinateWithinOneDegree(coordinates.y, character.yCoordinate);
+    setShowDropdown((prev) => !prev);
     if (!isCharacterAtCoords) return;
     setCharacters((prevChars) => {
       return prevChars.map((char) =>
