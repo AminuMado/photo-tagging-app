@@ -1,6 +1,19 @@
-const CharacterDropdown = ({ character }) => {
+import isCoordinateWithinOneDegree from "../../Util/isCoordinateWithinOneDegree";
+const CharacterDropdown = ({ character, setCharacters, coordinates }) => {
   return (
-    <div>
+    <div
+      onClick={(e) => {
+        const isCharacterAtCoords =
+          isCoordinateWithinOneDegree(character.xCoordinate, coordinates.x) &&
+          isCoordinateWithinOneDegree(coordinates.y, character.yCoordinate);
+        if (!isCharacterAtCoords) return;
+        setCharacters((prevChars) => {
+          return prevChars.map((char) =>
+            character.name === char.name ? { ...char, isFound: true } : char
+          );
+        });
+      }}
+    >
       <div className="flex w-40 rounded-md  hover:bg-neutral-700 cursor-pointer active:scale-95 items-center justify-around font-Inconsolata text-white">
         <img
           className="w-8 h-11 object-contain"
