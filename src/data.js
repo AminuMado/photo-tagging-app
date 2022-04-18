@@ -111,7 +111,7 @@ const game = {
               name: "Hellboy",
               title: "Hellboy",
               image: Hellboy_Src,
-              xCoordinate: 9"
+              xCoordinate: 9,
               yCoordinate: 95,
               isFound: false,
             },
