@@ -9,12 +9,12 @@ const GameOverModal = ({ time }) => {
 
         <div className="p-4 border-b-2 flex flex-col text-2xl">
           <p className="mb-3">Submit your score on the global leaderboard!</p>
-          <label for="username">Username</label>
+          <label htmlFor="username">Username</label>
           <input
             type="text"
             name="username"
             id="username"
-            maxlength="30"
+            maxLength="30"
             className="p-2 mt-1 bg-neutral-900 border border-gray-400 focus:border-green-300 outline-none rounded"
           />
         </div>
