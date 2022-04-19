@@ -136,7 +136,7 @@ const Game = ({ currentGame }) => {
           </>
         )}
         {showMessage && (
-          <p className=" bg-red-600 rounded-lg p-4 text-xl fixed top-3 font-bold">
+          <p className="bg-red-600 rounded-lg p-4 text-xl fixed top-3 font-bold">
             Keep Looking
           </p>
         )}
