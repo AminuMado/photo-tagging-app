@@ -2,16 +2,21 @@ import Nav from "../Nav/Nav";
 import React from "react";
 
 const Leaderboard = () => {
-  const [active, setActive] = React.useState("Cyberpunk City");
+  const [active, setActive] = React.useState({
+    name: "Cyberpunk City",
+    color: "bg-zinc-300",
+  });
+  const [difficulty, setDifficulty] = React.useState("easy");
   const levelList = [
-    { name: "Cyberpunk City", color: "zinc" },
-    { name: "Universe 113", color: "zinc" },
-    { name: "Ultimate Space Battle", color: "emerald" },
+    { name: "Cyberpunk City", color: "bg-zinc-300" },
+    { name: "Universe 113", color: "bg-sky-400" },
+    { name: "Ultimate Space Battle", color: "bg-emerald-400" },
   ];
   const levelItem = levelList.map((level) => (
     <button
       key={level.name}
-      className={`p-3 m-2 w-60 bg-${level.color}-300 rounded-3xl cursor-pointer hover:font-bold hover:scale-105 active:scale-100`}
+      className={`p-3 m-2 w-60 ${level.color} rounded-3xl cursor-pointer hover:font-bold hover:scale-105 active:scale-100`}
+      onClick={() => setActive(level)}
     >
       {level.name}
     </button>
@@ -19,21 +24,32 @@ const Leaderboard = () => {
   return (
     <>
       <Nav active="Leaderboard" />
-      <div>
+      <div className="flex flex-col justify-center items-center">
         <div className="flex gap-10 justify-center items-center p-3 m-3 duration-200">
           {levelItem}
         </div>
 
-        <div>
-          <button>{active}</button>
+        <div className="flex justify-around items-center">
+          <button
+            className={`p-5 m-2 w-64 ${active.color} rounded-3xl  font-bold cursor-default`}
+          >
+            {active.name}
+          </button>
         </div>
-        <div>
-          Level:
+        <div className="fixed bottom-0 right-5">
           <div>
-            <button className=" bg-orange-500 w-24 p-3 m-3 rounded-3xl hover:text-lime-500 hover:font-bold hover:scale-105 active:scale-100 focus:border-2 border-dashed">
+            <button
+              className={`${
+                difficulty === "easy" ? `opacity-100` : `opacity-20`
+              } bg-orange-500 w-24 p-3 m-3 rounded-3xl hover:text-lime-500 hover:font-bold hover:scale-105 active:scale-100`}
+            >
               Easy
             </button>
-            <button className=" bg-purple-600 w-24 p-3 m-3 rounded-3xl hover:text-blue-400 hover:font-bold hover:scale-105 active:scale-100 focus:border-2 border-dashed">
+            <button
+              className={`${
+                difficulty === "hard" ? `opacity-100` : `opacity-20`
+              } bg-purple-600 w-24 p-3 m-3 rounded-3xl hover:text-blue-400 hover:font-bold hover:scale-105 active:scale-100 `}
+            >
               Hard
             </button>
           </div>
