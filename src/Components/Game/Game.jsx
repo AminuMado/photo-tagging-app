@@ -6,6 +6,7 @@ import CharacterCard from "../Character/CharacterCard";
 import CharacterDropdown from "../CharacterDropdown/CharacterDropdown";
 import Crosshair from "../Crosshair/Crosshair";
 import GameOverModal from "../GameOverModal/GameOverModal";
+import { getCoordinates, getLocationImageClick } from "../../Util/Coordinates";
 const Game = ({ currentGame }) => {
   const [characters, setCharacters] = useState(currentGame.characters);
   const [active, setActive] = useState(false);
@@ -15,13 +16,8 @@ const Game = ({ currentGame }) => {
   const [showMessage, setShowMessage] = useState(false);
   const [isGameOver, setIsGameOver] = useState(currentGame.isGameOver);
 
+  //Map Constants
   const count = characters.filter((character) => !character.isFound).length;
-  useEffect(() => {
-    if (count === 0) {
-      setIsGameOver(true);
-    }
-  }, [count]);
-
   const dropDown = characters
     .filter((character) => !character.isFound)
     .map((character) => (
@@ -34,39 +30,6 @@ const Game = ({ currentGame }) => {
         setShowMessage={setShowMessage}
       />
     ));
-  const getCoordinates = (e) => {
-    const xCoordinate = Math.round(
-      (e.nativeEvent.offsetX / e.nativeEvent.target.offsetWidth) * 100
-    );
-    const yCoordinate = Math.round(
-      (e.nativeEvent.offsetY / e.nativeEvent.target.offsetHeight) * 100
-    );
-    const coordinates = { x: xCoordinate, y: yCoordinate };
-    return coordinates;
-  };
-  const getLocationImageClick = (e) => {
-    const xCoordinate = Math.round(e.nativeEvent.offsetX);
-    const yCoordinate = Math.round(e.nativeEvent.offsetY);
-    const coordinates = { xCoordinate, yCoordinate };
-    return coordinates;
-  };
-  const updateClickLocation = (coordinates) => {
-    const { xCoordinate, yCoordinate } = coordinates;
-    const updatedCoords = {
-      left: xCoordinate + "px",
-      top: yCoordinate + "px",
-    };
-
-    setClickLocation(updatedCoords);
-    setShowDropDown(!showDropDown);
-  };
-
-  const imageClick = (e) => {
-    const currentCoordinates = getLocationImageClick(e);
-    setCoordinates(currentCoordinates);
-    updateClickLocation(currentCoordinates);
-    setCoordinates(getCoordinates(e));
-  };
   const charactersList = characters.map((character) => {
     return (
       <CharacterCard
@@ -78,6 +41,32 @@ const Game = ({ currentGame }) => {
       />
     );
   });
+
+  //UseEffect for GameOver
+  useEffect(() => {
+    if (count === 0) {
+      setIsGameOver(true);
+    }
+  }, [count]);
+
+  //Functions
+  const updateClickLocation = (coordinates) => {
+    const { xCoordinate, yCoordinate } = coordinates;
+    const updatedCoords = {
+      left: xCoordinate + "px",
+      top: yCoordinate + "px",
+    };
+    setClickLocation(updatedCoords);
+    setShowDropDown(!showDropDown);
+  };
+
+  const imageClick = (e) => {
+    const currentCoordinates = getLocationImageClick(e);
+    setCoordinates(currentCoordinates);
+    updateClickLocation(currentCoordinates);
+    setCoordinates(getCoordinates(e));
+  };
+
   return (
     <div className="flex h-screen w-screen text-white">
       <aside
@@ -125,11 +114,15 @@ const Game = ({ currentGame }) => {
           }}
         />
         <button
-          className="w-14 h-14 rounded-full bg-red-800 flex items-center justify-center text-4xl font-bold font-Inconsolata fixed left-5 top-3 hover:bg-red-600 cursor-pointer hover:scale-105 z-10"
+          className="w-14 h-14 rounded-full bg-red-800 flex items-center justify-center text-4xl font-bold font-Inconsolata fixed left-5 top-3 
+          hover:bg-red-600 cursor-pointer hover:scale-105 z-10"
           onClick={() => setActive(!active)}
         >
           {count}
         </button>
+
+        {/* Condtional Renders */}
+
         {showDropDown && (
           <>
             <Crosshair coordinates={clickLocation} />
