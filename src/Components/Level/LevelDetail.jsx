@@ -26,11 +26,11 @@ const LevelDetail = ({
       } fixed top-36 h-screen w-screen pointer-events-all z-30 duration-1000`}
     >
       <div className="flex flex-col items-center justify-center">
-        <div className="flex  text-white m-4">
+        <div className="flex gap-5 text-white m-4">
           <div className="w-1/2 h-[600px] overflow-clip">
             <img src={level.image} alt={level.name}></img>
           </div>
-          <div className="w-1/2">
+          <div className="w-1/2 flex flex-col items-center justify-center">
             <div className="flex flex-col justify-center items-center gap-2">
               <h1 className="text-5xl">Select Difficulty</h1>
               <div className="flex gap-10 text-xl ">
@@ -48,7 +48,7 @@ const LevelDetail = ({
                 </button>
               </div>
               {characters && (
-                <div className="flex items-center">
+                <div className="flex items-center w-full">
                   {characters.map((character) => {
                     return (
                       <CharacterCard
@@ -69,7 +69,7 @@ const LevelDetail = ({
           <button
             className={
               characters
-                ? "bg-yellow-400 text-5xl w-60 p-3  rounded-lg hover:font-bold hover:scale-105 active:scale-100 opacity-100 transition-opacity duration-500"
+                ? "bg-yellow-400 text-5xl w-60 p-3 rounded-lg hover:font-bold hover:scale-105 active:scale-100 opacity-100 transition-opacity duration-500 mt-4 mb-4"
                 : "opacity-0"
             }
             onClick={handleClick}
