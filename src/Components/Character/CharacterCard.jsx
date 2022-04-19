@@ -3,7 +3,7 @@ const CharacterCard = ({ name, title, image, size, isFound }) => {
     <div
       className={
         size === "lg"
-          ? "text-white flex flex-col items-center justify-center w-52 m-4 p-4"
+          ? "text-white flex flex-col items-center justify-center w-52 m-2 p-2"
           : "text-white flex justify-around w-full m-2"
       }
     >
