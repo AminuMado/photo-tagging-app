@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Timer from "../Timer/Timer";
 import Home_Src from "../../Assets/Misc/home.png";
@@ -13,9 +13,15 @@ const Game = ({ currentGame }) => {
   const [coordinates, setCoordinates] = useState(null);
   const [clickLocation, setClickLocation] = useState({ left: "0", top: "0" });
   const [showMessage, setShowMessage] = useState(false);
-  const [isGameOver, setIsGameOver] = useState(false);
+  const [isGameOver, setIsGameOver] = useState(currentGame.isGameOver);
 
   const count = characters.filter((character) => !character.isFound).length;
+  useEffect(() => {
+    if (count === 0) {
+      setIsGameOver(true);
+    }
+  }, [count]);
+
   const dropDown = characters
     .filter((character) => !character.isFound)
     .map((character) => (
