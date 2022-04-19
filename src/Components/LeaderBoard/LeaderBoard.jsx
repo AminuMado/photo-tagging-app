@@ -39,16 +39,22 @@ const Leaderboard = () => {
         <div className="fixed bottom-0 right-5">
           <div>
             <button
+              onClick={() => setDifficulty("easy")}
               className={`${
-                difficulty === "easy" ? `opacity-100` : `opacity-20`
-              } bg-orange-500 w-24 p-3 m-3 rounded-3xl hover:text-lime-500 hover:font-bold hover:scale-105 active:scale-100`}
+                difficulty === "easy"
+                  ? `opacity-100`
+                  : `opacity-20 active:scale-100 hover:opacity-75`
+              } bg-orange-500 w-24 p-3 m-3 rounded-3xl font-bold hover:scale-105 `}
             >
               Easy
             </button>
             <button
+              onClick={() => setDifficulty("hard")}
               className={`${
-                difficulty === "hard" ? `opacity-100` : `opacity-20`
-              } bg-purple-600 w-24 p-3 m-3 rounded-3xl hover:text-blue-400 hover:font-bold hover:scale-105 active:scale-100 `}
+                difficulty === "hard"
+                  ? `opacity-100`
+                  : `opacity-20 active:scale-100 hover:opacity-60`
+              } bg-purple-600 w-24 p-3 m-3 rounded-3xl font-bold hover:scale-105  `}
             >
               Hard
             </button>
