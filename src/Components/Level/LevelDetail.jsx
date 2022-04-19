@@ -15,6 +15,7 @@ const LevelDetail = ({
       levelImage: level.image,
       difficulty: difficulty,
       characters: characters,
+      isGameOver: false,
     };
     startGame(currentGame);
   };
