@@ -1,19 +1,31 @@
 import Nav from "../Nav/Nav";
+import React from "react";
+
 const Leaderboard = () => {
+  const [active, setActive] = React.useState("Cyberpunk City");
+  const levelList = [
+    { name: "Cyberpunk City", color: "zinc" },
+    { name: "Universe 113", color: "zinc" },
+    { name: "Ultimate Space Battle", color: "emerald" },
+  ];
+  const levelItem = levelList.map((level) => (
+    <button
+      key={level.name}
+      className={`p-3 m-2 w-60 bg-${level.color}-300 rounded-3xl cursor-pointer hover:font-bold hover:scale-105 active:scale-100`}
+    >
+      {level.name}
+    </button>
+  ));
   return (
     <>
       <Nav active="Leaderboard" />
       <div>
-        <div className="flex gap-10  p-3 m-3 duration-200">
-          <button className="p-3 m-2 w-60 bg-zinc-300 rounded-3xl cursor-pointer hover:font-bold hover:scale-105 active:scale-100 duration-300">
-            Cyberpunk City
-          </button>
-          <button className="p-3 m-2 w-60 bg-sky-400 rounded-3xl cursor-pointer hover:font-bold hover:scale-105 active:scale-100 duration-300">
-            Universe 113
-          </button>
-          <button className="p-3 m-2 w-60 bg-emerald-300 rounded-3xl cursor-pointer hover:font-bold hover:scale-105 active:scale-100 duration-300">
-            Ultimate Space Battle
-          </button>
+        <div className="flex gap-10 justify-center items-center p-3 m-3 duration-200">
+          {levelItem}
+        </div>
+
+        <div>
+          <button>{active}</button>
         </div>
         <div>
           Level:
