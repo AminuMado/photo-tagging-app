@@ -15,6 +15,7 @@ const Game = ({ currentGame }) => {
   const [clickLocation, setClickLocation] = useState({ left: "0", top: "0" });
   const [showMessage, setShowMessage] = useState(false);
   const [isGameOver, setIsGameOver] = useState(currentGame.isGameOver);
+  const [startTime, setStartTime] = useState(Date.now());
 
   //Map Constants
   const count = characters.filter((character) => !character.isFound).length;
