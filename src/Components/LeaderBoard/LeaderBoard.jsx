@@ -59,47 +59,46 @@ const Leaderboard = () => {
           </button>
         </div>
       </div>
-      <table>
-        <tr>
-          <th>Place</th>
-          <th>Name</th>
-          <th>Time(seconds)</th>
-          <th>Date</th>
-        </tr>
-      </table>
+      <div className="flex justify-center p-10">
+        <table className=" w-full text-white text-3xl">
+          <thead
+            className={
+              difficulty === "easy" ? "bg-orange-500" : "bg-purple-600"
+            }
+          >
+            <tr>
+              <th className="w-1 text-center p-5 ">Place</th>
+              <th className="w-1/3 text-center p-5 ">Name</th>
+              <th className="w-1/3 text-center  p-5 ">Time(seconds)</th>
+              <th className="w-1/3  text-center p-5 ">Date</th>
+            </tr>
+          </thead>
+          <tbody className="text-2xl font-bold ">
+            <tr className="text-center">
+              <td>1</td>
+              <td>Malcolm Lockyer</td>
+              <td>00:23:45</td>
+              <td>Tuesday 18th 2022</td>
+            </tr>
+
+            <tr className="text-center">
+              <td>2</td>
+              <td>Malenia</td>
+              <td>00:03:45</td>
+              <td>Thursday 20th 2022</td>
+            </tr>
+
+            <tr className="text-center">
+              <td>3</td>
+              <td>General Radahn</td>
+              <td>10:25:45</td>
+              <td>Friday 21st 2022</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </>
   );
 };
 
 export default Leaderboard;
-
-// // Example of a data array that
-// // you might receive from an API
-// const data = [
-//   { name: "Anom", age: 19, gender: "Male" },
-//   { name: "Megha", age: 19, gender: "Female" },
-//   { name: "Subham", age: 25, gender: "Male"},
-// ]
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <table>
-//         <tr>
-//           <th>Name</th>
-//           <th>Age</th>
-//           <th>Gender</th>
-//         </tr>
-//         {data.map((val, key) => {
-//           return (
-//             <tr key={key}>
-//               <td>{val.name}</td>
-//               <td>{val.age}</td>
-//               <td>{val.gender}</td>
-//             </tr>
-//           )
-//         })}
-//       </table>
-//     </div>
-//   );
-// }
