@@ -4,7 +4,7 @@ import Home from "./Components/Home/Home";
 import Game from "./Components/Game/Game";
 import Leaderboard from "./Components/LeaderBoard/LeaderBoard";
 function App() {
-  const [currentGame, setCurrentGame] = useState("");
+  const [currentGame, setCurrentGame] = useState(false);
   return (
     <div className=" font-Crosshatcher">
       <BrowserRouter basename="/">
