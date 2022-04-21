@@ -1,12 +1,13 @@
 import Nav from "../Nav/Nav";
-import React from "react";
+import React, { useState } from "react";
 
 const Leaderboard = () => {
-  const [active, setActive] = React.useState({
+  const [active, setActive] = useState({
     name: "Cyberpunk City",
     color: "bg-zinc-300",
   });
-  const [difficulty, setDifficulty] = React.useState("easy");
+  const [difficulty, setDifficulty] = useState("easy");
+
   const levelList = [
     { name: "Cyberpunk City", color: "bg-zinc-300" },
     { name: "Universe 113", color: "bg-sky-400" },
@@ -21,6 +22,7 @@ const Leaderboard = () => {
       {level.name}
     </button>
   ));
+
   return (
     <>
       <Nav active="Leaderboard" />
