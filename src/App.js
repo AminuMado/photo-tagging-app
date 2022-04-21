@@ -11,7 +11,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home setGame={setCurrentGame} />} />
           <Route path="/Game" element={<Game currentGame={currentGame} />} />
-          <Route path="/Leaderboard" element={<Leaderboard />} />
+          <Route
+            path="/Leaderboard"
+            element={<Leaderboard currentGame={currentGame} />}
+          />
         </Routes>
       </BrowserRouter>
     </div>
