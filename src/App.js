@@ -4,7 +4,10 @@ import Home from "./Components/Home/Home";
 import Game from "./Components/Game/Game";
 import Leaderboard from "./Components/LeaderBoard/LeaderBoard";
 function App() {
-  const [currentGame, setCurrentGame] = useState(false);
+  const [currentGame, setCurrentGame] = useState({
+    levelName: "Cyberpunk City",
+    difficulty: "easy",
+  });
   return (
     <div className=" font-Crosshatcher">
       <BrowserRouter basename="/">
