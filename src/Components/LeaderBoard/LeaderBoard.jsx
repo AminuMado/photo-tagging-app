@@ -1,12 +1,12 @@
 import Nav from "../Nav/Nav";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-const Leaderboard = () => {
-  const [active, setActive] = useState({
-    name: "Cyberpunk City",
-    color: "bg-zinc-300",
-  });
-  const [difficulty, setDifficulty] = useState("easy");
+const Leaderboard = (props) => {
+  // so i have a name but i want it to represent something else
+  // if my state doesnt exist i wanna use the component as it is currently
+  // my defualt state is just to ensure that it shows the current page when youre done with a game
+  const [currentLevel, setCurrentLevel] = useState(props.currentGame.levelName);
+  const [difficulty, setDifficulty] = useState(props.currentGame.difficulty);
 
   const levelList = [
     { name: "Cyberpunk City", color: "bg-zinc-300" },
@@ -17,11 +17,28 @@ const Leaderboard = () => {
     <button
       key={level.name}
       className={`p-3 m-2 w-60 ${level.color} rounded-3xl cursor-pointer hover:font-bold hover:scale-105 active:scale-100`}
-      onClick={() => setActive(level)}
+      onClick={() => setCurrentLevel(level)}
     >
       {level.name}
     </button>
   ));
+
+  useEffect(() => {
+    switch (currentLevel) {
+      case "Cyberpunk City":
+        setCurrentLevel(levelList[0]);
+        break;
+      case "Universe 113":
+        setCurrentLevel(levelList[1]);
+        break;
+      case "Ultimate Space Battle":
+        setCurrentLevel(levelList[2]);
+        break;
+      default:
+        setCurrentLevel(levelList[0]);
+        break;
+    }
+  }, []);
 
   return (
     <>
@@ -33,9 +50,9 @@ const Leaderboard = () => {
 
         <div className="flex justify-around items-center">
           <button
-            className={`p-5 m-2 w-64 ${active.color} rounded-3xl  font-bold cursor-default`}
+            className={`p-5 m-2 w-64 ${currentLevel.color} rounded-3xl  font-bold cursor-default`}
           >
-            {active.name}
+            {currentLevel.name}
           </button>
         </div>
         <div className="fixed bottom-0 right-5">
