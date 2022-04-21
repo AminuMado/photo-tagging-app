@@ -16,6 +16,7 @@ const Game = ({ currentGame }) => {
   const [showMessage, setShowMessage] = useState(false);
   const [isGameOver, setIsGameOver] = useState(currentGame.isGameOver);
   const [startTime, setStartTime] = useState(Date.now());
+  const [score, setScore] = useState(0);
 
   //Map Constants
   const count = characters.filter((character) => !character.isFound).length;
@@ -67,6 +68,14 @@ const Game = ({ currentGame }) => {
     updateClickLocation(currentCoordinates);
     setCoordinates(getCoordinates(e));
   };
+  useEffect(() => {
+    if (isGameOver === true) {
+      let endingTimestamp = Date.now();
+      let score = (endingTimestamp - startTime) / 1000;
+      setScore(score);
+      // let date = new Date().toString().split(" ").splice(1, 3).join(" ");
+    }
+  }, [isGameOver]);
 
   return (
     <div className="flex h-screen w-screen text-white">
@@ -141,7 +150,7 @@ const Game = ({ currentGame }) => {
           </p>
         )}
       </main>
-      {isGameOver && <GameOverModal time={""} />}
+      {isGameOver && <GameOverModal time={score} />}
     </div>
   );
 };
