@@ -38,6 +38,7 @@ const Leaderboard = ({ currentGame }) => {
         setCurrentLevel(levelList[0]);
         break;
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
