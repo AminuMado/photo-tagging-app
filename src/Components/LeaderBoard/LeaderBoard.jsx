@@ -6,9 +6,6 @@ import compare from "../../Util/compare";
 import getCurrentLevelLeaderboardData from "../../Util/getCurrentLevel";
 
 const Leaderboard = ({ currentGame }) => {
-  // so i have a name but i want it to represent something else
-  // if my state doesnt exist i wanna use the component as it is currently
-  // my defualt state is just to ensure that it shows the current page when youre done with a game
   const [currentLevel, setCurrentLevel] = useState(currentGame.levelName);
   const [difficulty, setDifficulty] = useState(currentGame.difficulty);
   const [leaderboard, setLeaderboard] = useState([]);
