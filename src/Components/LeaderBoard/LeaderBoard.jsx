@@ -1,5 +1,9 @@
 import Nav from "../Nav/Nav";
 import React, { useEffect, useState } from "react";
+import { db } from "../../Util/firebase";
+import { collection, getDocs } from "firebase/firestore";
+import compare from "../../Util/compare";
+import getCurrentLevelLeaderboardData from "../../Util/getCurrentLevel";
 
 const Leaderboard = ({ currentGame }) => {
   // so i have a name but i want it to represent something else
@@ -7,6 +11,7 @@ const Leaderboard = ({ currentGame }) => {
   // my defualt state is just to ensure that it shows the current page when youre done with a game
   const [currentLevel, setCurrentLevel] = useState(currentGame.levelName);
   const [difficulty, setDifficulty] = useState(currentGame.difficulty);
+  const [leaderboard, setLeaderboard] = useState([]);
 
   const levelList = [
     { name: "Cyberpunk City", color: "bg-zinc-300" },
@@ -22,7 +27,16 @@ const Leaderboard = ({ currentGame }) => {
       {level.name}
     </button>
   ));
-
+  const leaderboardList = leaderboard.map((item) => {
+    return (
+      <tr className="text-center" key={item.place}>
+        <td>{item.place}</td>
+        <td>{item.name}</td>
+        <td>{item.time}</td>
+        <td>{item.date}</td>
+      </tr>
+    );
+  });
   useEffect(() => {
     switch (currentLevel) {
       case "Cyberpunk City":
@@ -40,6 +54,27 @@ const Leaderboard = ({ currentGame }) => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  useEffect(() => {
+    //collection ref
+    const colRef = collection(db, "highscore");
+
+    const getLeaderboardData = async () => {
+      let leaderboardData;
+      const firestoreData = await getDocs(colRef);
+      firestoreData.forEach((doc) => {
+        leaderboardData = doc.data();
+      });
+      const currentLevelLeaderboard = getCurrentLevelLeaderboardData(
+        leaderboardData,
+        currentLevel.name,
+        difficulty
+      );
+
+      currentLevelLeaderboard.sort(compare);
+      setLeaderboard(currentLevelLeaderboard);
+    };
+    getLeaderboardData();
+  }, [currentLevel, difficulty]);
 
   return (
     <>
@@ -93,28 +128,7 @@ const Leaderboard = ({ currentGame }) => {
               <th className="w-1/3  text-center p-5 ">Date</th>
             </tr>
           </thead>
-          <tbody className="text-2xl font-bold ">
-            <tr className="text-center">
-              <td>1</td>
-              <td>Malcolm Lockyer</td>
-              <td>00:23:45</td>
-              <td>Tuesday 18th 2022</td>
-            </tr>
-
-            <tr className="text-center">
-              <td>2</td>
-              <td>Malenia</td>
-              <td>00:03:45</td>
-              <td>Thursday 20th 2022</td>
-            </tr>
-
-            <tr className="text-center">
-              <td>3</td>
-              <td>General Radahn</td>
-              <td>10:25:45</td>
-              <td>Friday 21st 2022</td>
-            </tr>
-          </tbody>
+          <tbody className="text-2xl font-bold ">{leaderboardList}</tbody>
         </table>
       </div>
     </>
