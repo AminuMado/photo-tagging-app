@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { collection, getDocs, getFirestore, addDoc } from "firebase/firestore";
+import { getFirestore } from "firebase/firestore";
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -11,27 +11,13 @@ const firebaseConfig = {
   appId: "1:381554495292:web:689944b96f65a5dafb9839",
   measurementId: "G-23B1QTNEX7",
 };
+
 //initalize firebase app
 
 initializeApp(firebaseConfig);
 
 //initialize services
 
-const db = getFirestore();
+export const db = getFirestore();
 
-//collection ref
-
-const colRef = collection(db, "highscore");
-
-// get Collection data
-getDocs(colRef)
-  .then((snapshot) => {
-    console.log(snapshot.docs[0].data());
-    let highscore = null;
-    snapshot.docs.forEach((doc) => (highscore = { ...doc.data(), id: doc.id }));
-    console.log(highscore);
-  })
-  .catch((err) => console.log(err));
-
-// adding doc
-addDoc(colRef);
+console.log("firebase render");
