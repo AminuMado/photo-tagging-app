@@ -77,7 +77,7 @@ const Game = ({ currentGame }) => {
           levelName = "UltimateSpaceBattle";
           break;
         default:
-          throw Error("Something went wrong");
+          levelName = "CyberPunkCity";
       }
 
       const playerData = {
