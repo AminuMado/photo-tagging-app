@@ -1,6 +1,6 @@
 import "./Util/firebase";
 import React, { useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route, HashRouter } from "react-router-dom";
 import Home from "./Components/Home/Home";
 import Game from "./Components/Game/Game";
 import Leaderboard from "./Components/LeaderBoard/LeaderBoard";
@@ -11,7 +11,7 @@ function App() {
   });
   return (
     <div className=" font-Crosshatcher">
-      <BrowserRouter basename="/">
+      <HashRouter basename="/">
         <>
           <Routes>
             <Route path="/" element={<Home setGame={setCurrentGame} />} />
@@ -22,7 +22,7 @@ function App() {
             />
           </Routes>
         </>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }
