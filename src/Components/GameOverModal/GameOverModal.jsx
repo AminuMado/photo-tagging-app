@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-const GameOverModal = ({ time }) => {
+const GameOverModal = ({ time, playerName, setPlayerName }) => {
   return (
     <div className=" fixed h-screen w-screen bg-black opacity-95 pointer-events-all z-20">
       <div className="fixed bg-neutral-900 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-Inconsolata p-5 rounded-lg">
@@ -16,6 +16,10 @@ const GameOverModal = ({ time }) => {
             id="username"
             maxLength="30"
             className="p-2 mt-1 bg-neutral-900 border border-gray-400 focus:border-green-300 outline-none rounded"
+            value={playerName}
+            onChange={(e) => {
+              setPlayerName(e.target.value);
+            }}
           />
         </div>
         <div className="flex items-center justify-end w-full gap-2">
