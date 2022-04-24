@@ -7,8 +7,12 @@ import CharacterDropdown from "../CharacterDropdown/CharacterDropdown";
 import Crosshair from "../Crosshair/Crosshair";
 import GameOverModal from "../GameOverModal/GameOverModal";
 import { getCoordinates, getLocationImageClick } from "../../Util/Coordinates";
+import { arrayUnion, doc, updateDoc } from "firebase/firestore";
+import { db } from "../../Util/firebase";
+import formatTime from "../../Util/formatTime";
 const Game = ({ currentGame }) => {
   const [characters, setCharacters] = useState(currentGame.characters);
+  const [difficulty] = useState(currentGame.difficulty);
   const [active, setActive] = useState(false);
   const [showDropDown, setShowDropDown] = useState(false);
   const [coordinates, setCoordinates] = useState(null);
@@ -17,7 +21,7 @@ const Game = ({ currentGame }) => {
   const [isGameOver, setIsGameOver] = useState(currentGame.isGameOver);
   const [score, setScore] = useState(0);
   const [startTime] = useState(Date.now());
-
+  const [playerName, setPlayerName] = useState("");
   //Map Constants
   const count = characters.filter((character) => !character.isFound).length;
   const dropDown = characters
@@ -51,9 +55,44 @@ const Game = ({ currentGame }) => {
     }
     if (!isGameOver) return;
     let endingTimestamp = Date.now();
-    let score = (endingTimestamp - startTime) / 1000;
+    let score = formatTime((endingTimestamp - startTime) / 1000);
     setScore(score);
   }, [isGameOver, count, startTime]);
+
+  //function for pushing player data to server
+  const handleSubmit = () => {
+    if (playerName.trim() === "") {
+      alert("Enter your Name");
+      return;
+    } else {
+      let levelName;
+      switch (currentGame.levelName) {
+        case "Cyberpunk City":
+          levelName = "CyberPunkCity";
+          break;
+        case "Universe 113":
+          levelName = "Universe113";
+          break;
+        case "Ultimate Space Battle":
+          levelName = "UltimateSpaceBattle";
+          break;
+        default:
+          throw Error("Something went wrong");
+      }
+
+      const playerData = {
+        name: playerName,
+        time: score,
+        date: new Date().toLocaleDateString("en-GB").slice(0, 10),
+      };
+
+      const updatefield = `${levelName}.${difficulty}`;
+      const docRef = doc(db, "highscore", "PGCVZMDfo5xz5Zh2aD1C");
+      updateDoc(docRef, {
+        [updatefield]: arrayUnion(playerData),
+      });
+    }
+  };
 
   //Functions
   const updateClickLocation = (coordinates) => {
@@ -146,7 +185,14 @@ const Game = ({ currentGame }) => {
           </p>
         )}
       </main>
-      {isGameOver && <GameOverModal time={score} />}
+      {isGameOver && (
+        <GameOverModal
+          time={score}
+          setPlayerName={setPlayerName}
+          playerName={playerName}
+          handleSubmit={handleSubmit}
+        />
+      )}
     </div>
   );
 };
