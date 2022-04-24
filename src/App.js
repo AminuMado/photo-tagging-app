@@ -12,14 +12,16 @@ function App() {
   return (
     <div className=" font-Crosshatcher">
       <BrowserRouter basename="/">
-        <Routes>
-          <Route path="/" element={<Home setGame={setCurrentGame} />} />
-          <Route path="/Game" element={<Game currentGame={currentGame} />} />
-          <Route
-            path="/Leaderboard"
-            element={<Leaderboard currentGame={currentGame} />}
-          />
-        </Routes>
+        <>
+          <Routes>
+            <Route path="/" element={<Home setGame={setCurrentGame} />} />
+            <Route path="/Game" element={<Game currentGame={currentGame} />} />
+            <Route
+              path="/Leaderboard"
+              element={<Leaderboard currentGame={currentGame} />}
+            />
+          </Routes>
+        </>
       </BrowserRouter>
     </div>
   );
