@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-const GameOverModal = ({ time, playerName, setPlayerName }) => {
+const GameOverModal = ({ time, playerName, setPlayerName, handleSubmit }) => {
   return (
     <div className=" fixed h-screen w-screen bg-black opacity-95 pointer-events-all z-20">
       <div className="fixed bg-neutral-900 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-Inconsolata p-5 rounded-lg">
@@ -29,7 +29,15 @@ const GameOverModal = ({ time, playerName, setPlayerName }) => {
             </button>
           </Link>
           <Link to="/Leaderboard">
-            <button className=" bg-green-600  p-2 m-3 rounded-lg  hover:scale-105 active:scale-100  text-2xl">
+            <button
+              disabled={playerName.trim() === "" ? true : false}
+              className={`bg-green-600  p-2 m-3 rounded-lg  hover:scale-105 active:scale-100  text-2xl ${
+                playerName.trim() === ""
+                  ? "opacity-30 hover:scale-100"
+                  : "opacity-100"
+              }`}
+              onClick={handleSubmit}
+            >
               Submit Score
             </button>
           </Link>
