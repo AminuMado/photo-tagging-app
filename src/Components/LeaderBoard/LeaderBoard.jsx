@@ -24,10 +24,10 @@ const Leaderboard = ({ currentGame }) => {
       {level.name}
     </button>
   ));
-  const leaderboardList = leaderboard.map((item) => {
+  const leaderboardList = leaderboard.map((item, index) => {
     return (
-      <tr className="text-center" key={item.place}>
-        <td>{item.place}</td>
+      <tr className="text-center" key={index}>
+        <td>{index + 1}</td>
         <td>{item.name}</td>
         <td>{item.time}</td>
         <td>{item.date}</td>
