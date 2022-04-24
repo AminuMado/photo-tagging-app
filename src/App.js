@@ -11,7 +11,7 @@ function App() {
   });
   return (
     <HashRouter basename="/">
-      <>
+      <div className="font-Crosshatcher">
         <Routes>
           <Route path="/" element={<Home setGame={setCurrentGame} />} />
           <Route path="/Game" element={<Game currentGame={currentGame} />} />
@@ -20,7 +20,7 @@ function App() {
             element={<Leaderboard currentGame={currentGame} />}
           />
         </Routes>
-      </>
+      </div>
     </HashRouter>
   );
 }
