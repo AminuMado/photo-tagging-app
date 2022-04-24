@@ -10,20 +10,18 @@ function App() {
     difficulty: "easy",
   });
   return (
-    <div className=" font-Crosshatcher">
-      <HashRouter basename="/">
-        <>
-          <Routes>
-            <Route path="/" element={<Home setGame={setCurrentGame} />} />
-            <Route path="/Game" element={<Game currentGame={currentGame} />} />
-            <Route
-              path="/Leaderboard"
-              element={<Leaderboard currentGame={currentGame} />}
-            />
-          </Routes>
-        </>
-      </HashRouter>
-    </div>
+    <HashRouter basename="/">
+      <>
+        <Routes>
+          <Route path="/" element={<Home setGame={setCurrentGame} />} />
+          <Route path="/Game" element={<Game currentGame={currentGame} />} />
+          <Route
+            path="/Leaderboard"
+            element={<Leaderboard currentGame={currentGame} />}
+          />
+        </Routes>
+      </>
+    </HashRouter>
   );
 }
 
