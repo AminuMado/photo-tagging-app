@@ -19,5 +19,3 @@ initializeApp(firebaseConfig);
 //initialize services
 
 export const db = getFirestore();
-
-console.log("firebase render");
