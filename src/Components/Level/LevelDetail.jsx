@@ -50,7 +50,7 @@ const LevelDetail = ({
                 </button>
               </div>
               {characters && (
-                <div className="flex items-center w-full">
+                <div className="flex items-center w-full scale-75 md:scale-100">
                   {characters.map((character) => {
                     return (
                       <CharacterCard
