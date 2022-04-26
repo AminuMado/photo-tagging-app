@@ -8,7 +8,7 @@ const LevelCard = (props) => {
       onClick={props.clicked}
     >
       <img src={props.image} alt={props.name} className="hidden md:block" />
-      <h1 className="absolute z-10 top-0 text-yellow-400 text-xl p-3 bg-black w-full text-center md:text-2xl">
+      <h1 className="absolute z-10 top-0 text-yellow-300 text-xl p-3 bg-neutral-900 w-full text-center md:text-2xl">
         {props.name}
       </h1>
     </div>
