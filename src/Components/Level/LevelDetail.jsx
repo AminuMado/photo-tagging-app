@@ -26,7 +26,7 @@ const LevelDetail = ({
       } fixed top-20 h-screen w-screen pointer-events-all z-30 overflow-clip duration-1000`}
     >
       <div className="flex flex-col items-center justify-center">
-        <div className="flex gap-5 text-white m-4 items-center justify-center">
+        <div className="flex gap-5 text-white mx-4 mt-4 items-center justify-center">
           <div className="w-1/2 min-w-[600px] h-[600px] overflow-clip hidden xl:block">
             <img src={level.image} alt={level.name}></img>
           </div>
@@ -71,7 +71,7 @@ const LevelDetail = ({
           <button
             className={
               characters
-                ? "bg-yellow-400 text-4xl md:text-5xl w-60 p-3 rounded-lg hover:font-bold hover:scale-105 active:scale-100 opacity-100 transition-opacity duration-500 mt-2 mb-4"
+                ? "bg-yellow-400 text-4xl md:text-5xl w-60 p-3 rounded-lg hover:font-bold hover:scale-105 active:scale-100 opacity-100 transition-opacity duration-500 md:mt-4 "
                 : "opacity-0"
             }
             onClick={handleClick}
