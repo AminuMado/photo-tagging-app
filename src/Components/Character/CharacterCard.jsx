@@ -3,14 +3,14 @@ const CharacterCard = ({ name, title, image, size, isFound }) => {
     <div
       className={
         size === "lg"
-          ? "text-white flex flex-col items-center justify-center w-40 m-2 p-2"
+          ? "text-white flex flex-col items-center justify-center w-40 md:w-48 m-2 p-2"
           : "text-white flex justify-around w-full m-2"
       }
     >
       <div
         className={
           size === "lg"
-            ? "w-36 h-52 flex justify-center items-center overflow-clip "
+            ? "w-36  md:w-52 h-52 md:h-60 flex justify-center items-center overflow-clip "
             : "w-2/3 max-w-[160px] min-w-[160px] flex justify-center items-center"
         }
       >
