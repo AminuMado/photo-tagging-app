@@ -23,16 +23,16 @@ const LevelDetail = ({
     <div
       className={`${
         active ? "-translate-y-0" : "translate-y-full"
-      } fixed top-36 h-screen w-screen pointer-events-all z-30 duration-1000`}
+      } fixed top-20 h-screen w-screen pointer-events-all z-30 overflow-clip duration-1000`}
     >
       <div className="flex flex-col items-center justify-center">
-        <div className="flex gap-5 text-white m-4">
-          <div className="w-1/2 h-[600px] overflow-clip">
+        <div className="flex gap-5 text-white m-4 items-center justify-center">
+          <div className="w-1/2 min-w-[600px] h-[600px] overflow-clip hidden xl:block">
             <img src={level.image} alt={level.name}></img>
           </div>
           <div className="w-1/2 flex flex-col items-center justify-center">
             <div className="flex flex-col justify-center items-center gap-2">
-              <h1 className="text-5xl">Select Difficulty</h1>
+              <h1 className="text-4xl w-96">Select Difficulty</h1>
               <div className="flex gap-10 text-xl ">
                 <button
                   onClick={easyMode}
