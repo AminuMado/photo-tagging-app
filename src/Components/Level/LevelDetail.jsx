@@ -32,7 +32,9 @@ const LevelDetail = ({
           </div>
           <div className="w-1/2 flex flex-col items-center justify-center">
             <div className="flex flex-col justify-center items-center gap-2">
-              <h1 className="text-4xl w-96">Select Difficulty</h1>
+              <h1 className="text-3xl md:text-4xl text-center w-96">
+                Select Difficulty
+              </h1>
               <div className="flex gap-10 text-xl ">
                 <button
                   onClick={easyMode}
@@ -69,7 +71,7 @@ const LevelDetail = ({
           <button
             className={
               characters
-                ? "bg-yellow-400 text-5xl w-60 p-3 rounded-lg hover:font-bold hover:scale-105 active:scale-100 opacity-100 transition-opacity duration-500 mt-4 mb-4"
+                ? "bg-yellow-400 text-4xl md:text-5xl w-60 p-3 rounded-lg hover:font-bold hover:scale-105 active:scale-100 opacity-100 transition-opacity duration-500 mt-2 mb-4"
                 : "opacity-0"
             }
             onClick={handleClick}
