@@ -23,7 +23,7 @@ const LevelDetail = ({
     <div
       className={`${
         active ? "-translate-y-0" : "translate-y-full"
-      } fixed top-10 md:top-32 h-screen w-screen pointer-events-all z-30 overflow-clip duration-1000`}
+      } fixed top-14 md:top-32 h-screen w-screen pointer-events-all z-30 overflow-clip duration-1000`}
     >
       <div className="flex flex-col items-center justify-center">
         <div className="flex gap-5 text-white mx-4 mt-4 items-center justify-center">
