@@ -117,7 +117,7 @@ const Game = ({ currentGame }) => {
       <aside
         className={
           active
-            ? " w-full lg:w-96 lg:max-w-[384px] h-full  bg-neutral-900 fixed transition-all duration-500 left-0 lg:left-7 scale-95 rounded-md flex flex-col justify-between p-2"
+            ? " w-full lg:w-96 lg:max-w-[384px] h-full  bg-neutral-900 fixed transition-all duration-500 left-0 lg:left-7 scale-95 rounded-md flex flex-col  justify-between md:justify-between p-2"
             : "lg:w-32 lg:max-w-[384px] h-full -left-full absolute transition-all duration-500"
         }
       >
@@ -136,8 +136,8 @@ const Game = ({ currentGame }) => {
             />
           </Link>
         </div>
-        <div className="flex flex-col items-center justify-center scale-75 md:scale-100">
-          {charactersList}
+        <div className="flex flex-col items-center justify-center h-[700px] md:scale-100">
+          <div className="scale-75 md:scale-100">{charactersList}</div>
         </div>
         <div className="text-3xl font-Inconsolata text-center ">
           <Timer isGameOver={false} />
