@@ -136,7 +136,7 @@ const Game = ({ currentGame }) => {
             />
           </Link>
         </div>
-        <div className="flex flex-col items-center justify-center h-[700px] md:scale-100">
+        <div className="flex flex-col items-center justify-center h-[600px] overflow-clip md:scale-100">
           <div className="scale-75 md:scale-100">{charactersList}</div>
         </div>
         <div className="text-3xl font-Inconsolata text-center ">
