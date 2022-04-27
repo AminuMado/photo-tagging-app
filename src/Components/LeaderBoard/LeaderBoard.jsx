@@ -28,7 +28,7 @@ const Leaderboard = ({ currentGame }) => {
     return (
       <tr className="text-center text-sm md:text-2xl" key={index}>
         <td>{index + 1}</td>
-        <td>{item.name}</td>
+        <td className="max-w-[300px]">{item.name}</td>
         <td>{item.time}</td>
         <td className="hidden lg:block">{item.date}</td>
       </tr>
@@ -95,7 +95,7 @@ const Leaderboard = ({ currentGame }) => {
               difficulty === "easy"
                 ? `opacity-100 cursor-default`
                 : `opacity-20 active:scale-100 hover:opacity-75`
-            } bg-orange-500 w-24 p-3 m-3 rounded-3xl font-bold hover:scale-105 `}
+            } bg-orange-500 w-24 text-xs md:text-base p-2 md:p-3 m-3 rounded-3xl font-bold hover:scale-105 `}
           >
             Easy
           </button>
@@ -105,13 +105,13 @@ const Leaderboard = ({ currentGame }) => {
               difficulty === "hard"
                 ? `opacity-100 cursor-default`
                 : `opacity-20 active:scale-100 hover:opacity-60`
-            } bg-purple-600 w-24 p-3 m-3 rounded-3xl font-bold hover:scale-105  `}
+            } bg-purple-600 w-24  text-xs md:text-base p-2 md:p-3 m-3 rounded-3xl font-bold hover:scale-105  `}
           >
             Hard
           </button>
         </div>
       </div>
-      <div className="flex justify-center p-5 md:p-10">
+      <div className="flex justify-center p-5 ">
         <table className=" w-full text-white text-base md:text-3xl">
           <thead
             className={
@@ -119,10 +119,10 @@ const Leaderboard = ({ currentGame }) => {
             }
           >
             <tr>
-              <th className="w-1 text-center px-7 py-5">Place</th>
-              <th className="w-1/3 text-center px-7 py-5">Name</th>
-              <th className="w-1/3 text-center  px-7 py-5">Time</th>
-              <th className="w-1/3  text-center px-7 py-5 hidden lg:block">
+              <th className="w-1 text-center p-5">Place</th>
+              <th className="w-1/3 text-center p-5">Name</th>
+              <th className="w-1/3 text-center  p-5">Time</th>
+              <th className="w-1/3 text-center p-5 hidden lg:table-cell">
                 Date
               </th>
             </tr>
