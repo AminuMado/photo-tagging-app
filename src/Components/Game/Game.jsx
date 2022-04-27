@@ -153,7 +153,7 @@ const Game = ({ currentGame }) => {
         <img
           src={currentGame.levelImage}
           alt={currentGame.levelName}
-          className="max-w-screen-lg min-w-full object-cover"
+          className="max-w-full min-w-full"
           onClick={(e) => {
             imageClick(e);
           }}
