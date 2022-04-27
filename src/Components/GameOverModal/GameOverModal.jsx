@@ -26,14 +26,14 @@ const GameOverModal = ({ time, playerName, setPlayerName, handleSubmit }) => {
         </div>
         <div className="flex items-center justify-center lg:justify-end w-full gap-2">
           <Link to="/">
-            <button className=" bg-red-600  p-2 m-3 rounded-lg  hover:scale-105 active:scale-100  text-xl md-text-2xl">
+            <button className=" bg-red-600  p-2 m-3 rounded-lg  hover:scale-105 active:scale-100  text-base md-text-2xl">
               Cancel
             </button>
           </Link>
           <Link to="/Leaderboard">
             <button
               disabled={playerName.trim() === "" ? true : false}
-              className={`bg-green-600  p-2 m-3 rounded-lg  hover:scale-105 active:scale-100  text-xl md:text-2xl ${
+              className={`bg-green-600  p-2 m-3 rounded-lg  hover:scale-105 active:scale-100  text-base md:text-2xl ${
                 playerName.trim() === ""
                   ? "opacity-30 hover:scale-100"
                   : "opacity-100"
