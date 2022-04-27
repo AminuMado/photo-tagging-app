@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/photo-tagging-app/static/css/main.13d98a2b.css",
-    "main.js": "/photo-tagging-app/static/js/main.a6857159.js",
+    "main.css": "/photo-tagging-app/static/css/main.2a212c86.css",
+    "main.js": "/photo-tagging-app/static/js/main.ed067666.js",
     "static/js/787.6eec3de1.chunk.js": "/photo-tagging-app/static/js/787.6eec3de1.chunk.js",
     "static/media/ultimatespacebattle.jpg": "/photo-tagging-app/static/media/ultimatespacebattle.b19146dda0418923c832.jpg",
     "static/media/universe113.jpg": "/photo-tagging-app/static/media/universe113.0c0abd7a50bdb7d82644.jpg",
@@ -38,12 +38,12 @@
     "static/media/cartman.png": "/photo-tagging-app/static/media/cartman.c348b5e92a50542b7f7b.png",
     "static/media/home.png": "/photo-tagging-app/static/media/home.4b2ce3595b855a81c0b4.png",
     "index.html": "/photo-tagging-app/index.html",
-    "main.13d98a2b.css.map": "/photo-tagging-app/static/css/main.13d98a2b.css.map",
-    "main.a6857159.js.map": "/photo-tagging-app/static/js/main.a6857159.js.map",
+    "main.2a212c86.css.map": "/photo-tagging-app/static/css/main.2a212c86.css.map",
+    "main.ed067666.js.map": "/photo-tagging-app/static/js/main.ed067666.js.map",
     "787.6eec3de1.chunk.js.map": "/photo-tagging-app/static/js/787.6eec3de1.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.13d98a2b.css",
-    "static/js/main.a6857159.js"
+    "static/css/main.2a212c86.css",
+    "static/js/main.ed067666.js"
   ]
 }
