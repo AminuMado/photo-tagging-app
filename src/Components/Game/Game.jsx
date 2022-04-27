@@ -117,8 +117,8 @@ const Game = ({ currentGame }) => {
       <aside
         className={
           active
-            ? "w-96 max-w-[384px] h-full  bg-neutral-900 fixed transition-all duration-500 left-7 scale-95 rounded-md flex flex-col justify-between p-2"
-            : "w-32 max-w-[384px] h-full -left-full absolute transition-all duration-500"
+            ? " w-full lg:w-96 lg:max-w-[384px] h-full  bg-neutral-900 fixed transition-all duration-500 left-0 lg:left-7 scale-95 rounded-md flex flex-col justify-between p-2"
+            : "lg:w-32 lg:max-w-[384px] h-full -left-full absolute transition-all duration-500"
         }
       >
         <div className="flex justify-between items-center w-full">
@@ -132,11 +132,11 @@ const Game = ({ currentGame }) => {
             <img
               src={Home_Src}
               alt="Home"
-              className="w-10 invert-[.25] hover:invert cursor-pointer hover:scale-105 duration-200 m-2"
+              className="w-10 invert-[.25] hover:invert cursor-pointer hover:scale-105 duration-200 mx-4 my-2"
             />
           </Link>
         </div>
-        <div className="flex flex-col gap-2 items-center justify-center">
+        <div className="flex flex-col items-center justify-center scale-75 md:scale-100">
           {charactersList}
         </div>
         <div className="text-3xl font-Inconsolata text-center ">
@@ -146,7 +146,7 @@ const Game = ({ currentGame }) => {
       <main
         className={
           active
-            ? "scale-x-95 scale-y-95 ml-96 opacity-20 pointer-events-none rounded-md h-full w-full grid place-items-center transition-all duration-300 bg-slate-400"
+            ? " hidden lg:grid scale-x-95 scale-y-95 ml-96 opacity-20 pointer-events-none rounded-md h-full w-full  place-items-center transition-all duration-300 bg-slate-400"
             : "h-fit w-full grid place-items-center transition-all duration-300 relative overflow-clip "
         }
       >
