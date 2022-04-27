@@ -27,7 +27,7 @@ const CharacterDropdown = ({
     <div onClick={handleClick}>
       <div className="flex w-8 md:w-40 rounded-md  hover:bg-neutral-700 cursor-pointer active:scale-95 items-center justify-around font-Inconsolata text-white">
         <img
-          className="w-3 md:w-8 h-5 md:h-11 object-contain"
+          className="w-4 md:w-8 h-5 md:h-11 object-contain"
           src={character.image}
           alt={character.name}
         ></img>
