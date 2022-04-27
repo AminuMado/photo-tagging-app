@@ -18,7 +18,7 @@ const Leaderboard = ({ currentGame }) => {
   const levelItem = levelList.map((level) => (
     <button
       key={level.name}
-      className={`p-3 m-2 w-60 ${level.color} rounded-3xl cursor-pointer hover:font-bold hover:scale-105 active:scale-100`}
+      className={`p-2 m-1 lg:w-72 w-24 h-20 text-xs lg:text-xl ${level.color} rounded-3xl cursor-pointer hover:font-bold hover:scale-105 active:scale-100`}
       onClick={() => setCurrentLevel(level)}
     >
       {level.name}
@@ -26,11 +26,11 @@ const Leaderboard = ({ currentGame }) => {
   ));
   const leaderboardList = leaderboard.map((item, index) => {
     return (
-      <tr className="text-center" key={index}>
+      <tr className="text-center text-sm md:text-2xl" key={index}>
         <td>{index + 1}</td>
         <td>{item.name}</td>
         <td>{item.time}</td>
-        <td>{item.date}</td>
+        <td className="hidden lg:block">{item.date}</td>
       </tr>
     );
   });
@@ -77,7 +77,7 @@ const Leaderboard = ({ currentGame }) => {
     <>
       <Nav active="Leaderboard" />
       <div className="flex flex-col justify-center items-center">
-        <div className="flex gap-10 justify-center items-center p-3 m-3 duration-200">
+        <div className="flex gap-3 lg:gap-10 justify-center items-center p-3 m-2 duration-200">
           {levelItem}
         </div>
 
@@ -111,18 +111,20 @@ const Leaderboard = ({ currentGame }) => {
           </button>
         </div>
       </div>
-      <div className="flex justify-center p-10">
-        <table className=" w-full text-white text-3xl">
+      <div className="flex justify-center p-5 md:p-10">
+        <table className=" w-full text-white text-base md:text-3xl">
           <thead
             className={
               difficulty === "easy" ? "bg-orange-500" : "bg-purple-600"
             }
           >
             <tr>
-              <th className="w-1 text-center p-5 ">Place</th>
-              <th className="w-1/3 text-center p-5 ">Name</th>
-              <th className="w-1/3 text-center  p-5 ">Time(seconds)</th>
-              <th className="w-1/3  text-center p-5 ">Date</th>
+              <th className="w-1 text-center px-7 py-5">Place</th>
+              <th className="w-1/3 text-center px-7 py-5">Name</th>
+              <th className="w-1/3 text-center  px-7 py-5">Time</th>
+              <th className="w-1/3  text-center px-7 py-5 hidden lg:block">
+                Date
+              </th>
             </tr>
           </thead>
           <tbody className="text-2xl font-bold ">{leaderboardList}</tbody>
