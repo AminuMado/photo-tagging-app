@@ -55,7 +55,7 @@
 
 ## Credit
 
-The illustration is authored by the amazing artist [Egor Klyuchnyk](https://www.artstation.com/chekavo).
+The illustration(s) is authored by the amazing artist [Egor Klyuchnyk](https://www.artstation.com/chekavo).
 
 You can buy the art as a poster from [Anomaly World](https://anomaly-world.com/).
 
